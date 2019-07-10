@@ -4,18 +4,18 @@ class ATBA extends rlbot.BaseAgent {
     getOutput(gameTickPacket) {
         var controller = rlbot.SimpleController
         /* ATBA example */
-        if (!gameTickPacket.gameInfo().isRoundActive()) {
+        if (!gameTickPacket.gameInfo.isRoundActive) {
 
             return controller;
         }
 
-        var ballLocation = gameTickPacket.ball().physics().location();
-        var carLocation = gameTickPacket.players(this.index).physics().location();
-        var carRotation = gameTickPacket.players(this.index).physics().rotation();
+        var ballLocation = gameTickPacket.ball.physics.location;
+        var carLocation = gameTickPacket.players[this.index].physics.location;
+        var carRotation = gameTickPacket.players[this.index].physics.rotation;
 
         // Calculate to get the angle from the front of the bot's car to the ball.
-        var botToTargetAngle = Math.atan2(ballLocation.y() - carLocation.y(), ballLocation.x() - carLocation.x());
-        var botFrontToTargetAngle = botToTargetAngle - carRotation.yaw();
+        var botToTargetAngle = Math.atan2(ballLocation.y - carLocation.y, ballLocation.x - carLocation.x);
+        var botFrontToTargetAngle = botToTargetAngle - carRotation.yaw;
 
         // Correct the angle
         if (botFrontToTargetAngle < -Math.PI) { botFrontToTargetAngle += 2 * Math.PI };
