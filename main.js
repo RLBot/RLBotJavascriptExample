@@ -34,4 +34,5 @@ class ATBA extends rlbot.BaseAgent {
     }
 }
 
-rlbot.manager.start(ATBA)
+const manager = new rlbot.Manager(ATBA);
+manager.start();
