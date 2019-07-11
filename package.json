@@ -5,6 +5,6 @@
   "main": "main.js",
   "license": "ISC",
   "dependencies": {
-    "rlbot-test": "github:SuperVK/RLBotJS"
+    "rlbot-test": "file:../RLBotJS"
   }
 }

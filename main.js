@@ -1,14 +1,14 @@
 const rlbot = require('rlbot-test')
 
 class ATBA extends rlbot.BaseAgent {
-    getOutput(gameTickPacket) {
+    getOutput(gameTickPacket, ballPrediction, fieldInfo) {
         var controller = rlbot.SimpleController
         /* ATBA example */
         if (!gameTickPacket.gameInfo.isRoundActive) {
 
             return controller;
         }
-
+        console.log(ballPrediction, fieldInfo)
         var ballLocation = gameTickPacket.ball.physics.location;
         var carLocation = gameTickPacket.players[this.index].physics.location;
         var carRotation = gameTickPacket.players[this.index].physics.rotation;
