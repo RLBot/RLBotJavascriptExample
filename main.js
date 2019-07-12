@@ -2,13 +2,12 @@ const rlbot = require('rlbot-test')
 
 class ATBA extends rlbot.BaseAgent {
     getOutput(gameTickPacket, ballPrediction, fieldInfo) {
-        var controller = rlbot.SimpleController
+        var controller = new rlbot.SimpleController()
         /* ATBA example */
         if (!gameTickPacket.gameInfo.isRoundActive) {
 
             return controller;
         }
-        console.log(ballPrediction, fieldInfo)
         var ballLocation = gameTickPacket.ball.physics.location;
         var carLocation = gameTickPacket.players[this.index].physics.location;
         var carRotation = gameTickPacket.players[this.index].physics.rotation;
@@ -26,6 +25,11 @@ class ATBA extends rlbot.BaseAgent {
             controller.steer = 1;
         } else {
             controller.steer = -1;
+        }
+        
+        //almost scored
+        if(ballPrediction.slices[0].physics.location.y > 5120 || ballPrediction.slices[0].physics.location.y < 5120) {
+            this.sendQuickChat(rlbot.quickChats.compliments.NiceShot, false)
         }
 
         controller.throttle = 1;
