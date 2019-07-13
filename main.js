@@ -1,7 +1,10 @@
 const rlbot = require('rlbot-test')
 
 class ATBA extends rlbot.BaseAgent {
-    getOutput(gameTickPacket, ballPrediction, fieldInfo) {
+    constructor(name, team, index, fieldInfo) {
+        super(name, team, index, fieldInfo) //pushes these all to this.
+    }
+    getOutput(gameTickPacket, ballPrediction) {
         var controller = new rlbot.SimpleController()
         /* ATBA example */
         if (!gameTickPacket.gameInfo.isRoundActive) {
