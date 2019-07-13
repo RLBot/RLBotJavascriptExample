@@ -28,7 +28,7 @@ class ATBA extends rlbot.BaseAgent {
         }
         
         //almost scored
-        if(ballPrediction.slices[0].physics.location.y > 5120 || ballPrediction.slices[0].physics.location.y < 5120) {
+        if(ballPrediction.slices[60].physics.location.y > 5120 || ballPrediction.slices[60].physics.location.y < -5120) {
             this.sendQuickChat(rlbot.quickChats.compliments.NiceShot, false)
         }
 
