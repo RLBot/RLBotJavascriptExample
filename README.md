@@ -9,7 +9,7 @@ If you've installed a few other npm packages already, chances are doing `npm ins
 
 ### if `npm install SuperVK/RLBotJS` gives an error follow this guide:
 
-1. Install python 2.7, but make sure to not check "add to PATH" in the installation, because then the python runner for RLBot won't run anymore
+1. Install python 2.7, but make sure to **not** check "add to PATH" in the installation, because then the python runner for RLBot won't run anymore
 
 2. Open a shell with admin access, and run `npm install --global --production windows-build-tools --vs2015`, if it can't find npm launch powershell instead of cmd.
 
