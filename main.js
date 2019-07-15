@@ -1,11 +1,12 @@
-const rlbot = require('rlbot-test')
+const { BaseAgent, SimpleController, quickChats, Manager } = require('rlbot-test');
+const { GameState, BallState, CarState, Physics, Vector3 } = require('rlbot-test/src/structs/GameState')
 
-class ATBA extends rlbot.BaseAgent {
+class ATBA extends BaseAgent {
     constructor(name, team, index, fieldInfo) {
         super(name, team, index, fieldInfo) //pushes these all to this.
     }
     getOutput(gameTickPacket, ballPrediction) {
-        var controller = new rlbot.SimpleController()
+        var controller = new SimpleController()
         /* ATBA example */
         if (!gameTickPacket.gameInfo.isRoundActive) {
 
@@ -31,15 +32,26 @@ class ATBA extends rlbot.BaseAgent {
         }
         
         //almost scored
-        if(ballPrediction.slices[60].physics.location.y > 5120 || ballPrediction.slices[60].physics.location.y < -5120) {
-            this.sendQuickChat(rlbot.quickChats.compliments.NiceShot, false)
+        if(ballPrediction.slices[10].physics.location.y > 5120 || ballPrediction.slices[10].physics.location.y < -5120) {
+            this.sendQuickChat(quickChats.compliments.NiceShot, false)
+            let location = null
+            let rotation = null
+            let velocity = new Vector3(null, -gameTickPacket.ball.physics.velocity.y, null)
+            let physics = new Physics(location, rotation, velocity)
+            let ball = new BallState(physics)
+            this.setGameState(new GameState(ball))
         }
-
+        //cancel gravity
+        let cars = []
+        for(let car of gameTickPacket.players) {
+            cars.push(new CarState(new Physics(null, null, new Vector3(null, null, car.physics.velocity.z+(650/55)))))
+        }
+        this.setGameState(new GameState(null, cars))
         controller.throttle = 1;
         return controller;
 
     }
 }
 
-const manager = new rlbot.Manager(ATBA);
+const manager = new Manager(ATBA);
 manager.start();
