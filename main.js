@@ -1,5 +1,5 @@
 const { BaseAgent, SimpleController, quickChats, Manager } = require('rlbot-test');
-const { GameState, BallState, CarState, Physics, Vector3 } = require('rlbot-test/src/structs/GameState')
+const { GameState, BallState, CarState, Physics, Vector3 } = require('rlbot-test').gameStateUtil
 
 class ATBA extends BaseAgent {
     constructor(name, team, index, fieldInfo) {
