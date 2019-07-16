@@ -16,6 +16,8 @@ class ATBA extends BaseAgent {
         var carLocation = gameTickPacket.players[this.index].physics.location;
         var carRotation = gameTickPacket.players[this.index].physics.rotation;
         
+        //for spikerush
+        controller.useItem = true
 
         // Calculate to get the angle from the front of the bot's car to the ball.
         var botToTargetAngle = Math.atan2(ballLocation.y - carLocation.y, ballLocation.x - carLocation.x);
