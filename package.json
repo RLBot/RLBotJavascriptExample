@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "An example bot implemented in JavaScript",
   "main": "main.js",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "rlbot-test": "github:SuperVK/RLBot"
+    "rlbot-test": "github:SuperVK/RLBotJS"
   }
 }
