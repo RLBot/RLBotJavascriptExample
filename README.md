@@ -21,6 +21,9 @@ If you've installed a few other npm packages already, chances are doing `npm ins
 
 4. Then run `npm install again`
 
+5. Open cmd/powershell in the example folder, and run `node .`
+
+6. Start RLBot with gui or via `RLBotJavascriptExample/rlbot/run.bat` 
 
 
 ## Video Guide
