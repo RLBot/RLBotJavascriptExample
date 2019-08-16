@@ -46,7 +46,7 @@ class ATBA extends BaseAgent {
         
         this.renderer.endRendering()
 
-        //almost scored
+        // An example of quick chat and state setting.  Prevents the ball from going in the goal.
         if(ballPrediction.slices[10].physics.location.y > 5120 || ballPrediction.slices[10].physics.location.y < -5120) {
             this.sendQuickChat(quickChats.compliments.NiceShot, false)
             let location = null
