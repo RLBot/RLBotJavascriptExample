@@ -50,7 +50,7 @@ class ATBA extends BaseAgent {
         this.renderer.endRendering()
 
         //almost scored (checks 10 frames into the future)
-        if(ballPrediction.slices[10].physics.location.y > 5120 || ballPrediction.slices[10].physics.location.y < -5120) {
+        if(Math.abs(ballPrediction.slices[10].physics.location.y) > 5120) {
 
             //send a quickchat
             this.sendQuickChat(quickChats.compliments.NiceShot, false)
