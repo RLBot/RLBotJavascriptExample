@@ -7,7 +7,9 @@ If you are looking for the java example bot please go [here](https://github.com/
 
 If you've installed a few other npm packages already, chances are doing `npm install SuperVK/RLBotJS` works.
 
-1. Clone this repo
+0. Make sure you have git installed (even if you are downloading the zip instead of cloning)
+
+1. Clone this repo (or download the zip)
 
 2. Go into the folder, and type `npm install`
 
