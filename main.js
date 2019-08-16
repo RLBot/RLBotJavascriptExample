@@ -24,8 +24,8 @@ class ATBA extends BaseAgent {
         var botFrontToTargetAngle = botToTargetAngle - carRotation.yaw;
 
         // Correct the angle
-        if (botFrontToTargetAngle < -Math.PI) { botFrontToTargetAngle += 2 * Math.PI };
-        if (botFrontToTargetAngle > Math.PI) { botFrontToTargetAngle -= 2 * Math.PI };
+        if (botFrontToTargetAngle < -Math.PI) botFrontToTargetAngle += 2 * Math.PI;
+        if (botFrontToTargetAngle > Math.PI) botFrontToTargetAngle -= 2 * Math.PI;
 
         // Decide which way to steer in order to get to the ball.
         if (botFrontToTargetAngle > 0) {
@@ -34,9 +34,12 @@ class ATBA extends BaseAgent {
             controller.steer = -1;
         }
         
+        //renders "Hello world"
         this.renderer.beginRendering()
         this.renderer.drawString2D(20, 20, 3, 3, 'Hello world', new this.renderer.Color(255, 255, 0, 0))
         
+        //renderes the ball prediction
+        //the color for rendering
         let black = new this.renderer.Color(255, 0, 0, 0)
         for(let i = 0; i < ballPrediction.slices.length-1; i++) {
             let ball1 = ballPrediction.slices[i].physics.location
@@ -46,25 +49,39 @@ class ATBA extends BaseAgent {
         
         this.renderer.endRendering()
 
-        //almost scored
+        //almost scored (checks 10 frames into the future)
         if(ballPrediction.slices[10].physics.location.y > 5120 || ballPrediction.slices[10].physics.location.y < -5120) {
+
+            //send a quickchat
             this.sendQuickChat(quickChats.compliments.NiceShot, false)
+
+            //reverse the y so it can't score (YOU PROBABLY WANNA REMOVE THIS)
             let location = null
             let rotation = null
-            let velocity = new Vector3(null, -gameTickPacket.ball.physics.velocity.y, null)
+            let velocity = new Vector3(null, gameTickPacket.ball.physics.velocity.y*-1, null)
             let physics = new Physics(location, rotation, velocity)
             let ball = new BallState(physics)
             this.setGameState(new GameState(ball))
+
+
         }
-        //cancel gravity
-        // let cars = []
-        // for(let car of gameTickPacket.players) {
-        //     cars.push(new CarState(new Physics(null, null, new Vector3(null, null, car.physics.velocity.z+(650/55)))))
-        // }
-        // let ball = new BallState(new Physics(null, null, new Vector3(null, null, gameTickPacket.ball.physics.velocity.z+(650/55))))
-        // this.setGameState(new GameState(ball, cars))
+
+
         controller.throttle = 1;
-        return controller;
+        return controller; //yes this returns before the gravity get canceled, so move the return if you want to have 0 gravity
+
+        //cancel gravity
+        //PROBABLY WANNA REMOVE THIS
+        let cars = []
+        for(let car of gameTickPacket.players) {
+            cars.push(new CarState(new Physics(null, null, new Vector3(null, null, car.physics.velocity.z+(650/60))))) //assumes you are running 60fps
+        }
+        let ball = new BallState(new Physics(null, null, new Vector3(null, null, gameTickPacket.ball.physics.velocity.z+(650/60)))) //assumes you are running 60fps
+        this.setGameState(new GameState(ball, cars))
+
+
+
+        
 
     }
 }
