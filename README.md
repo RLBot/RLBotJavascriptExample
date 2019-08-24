@@ -1,6 +1,8 @@
 # RLBotJavaScriptExample
 An example bot implemented in JavaScript
 
+[Documentation](https://github.com/SuperVK/RLBotJS)
+
 If you are looking for the java example bot please go [here](https://github.com/RLBot/RLBotJavaExample)
 
 ## Installation guide
@@ -26,12 +28,3 @@ If you've installed a few other npm packages already, chances are doing `npm ins
 
 3. Try installing again from step 2
 
-
-
-## Video Guide
-
-TODO: make video guide
-
-## Usage Instructions:
-
-TODO: make usage instructions
