@@ -20,7 +20,7 @@ class ATBA extends BaseAgent {
         super(name, team, index, fieldInfo) //pushes these all to `this`.
     }
     getOutput(gameTickPacket: GameTickPacket, ballPrediction: BallPrediction) {
-        var controller: SimpleController = new SimpleController()
+        var controller = new SimpleController()
         /* ATBA example */
         if (!gameTickPacket.gameInfo.isRoundActive) {
 
