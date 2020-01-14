@@ -2,4 +2,3 @@
 
 @cd ../
 @call node .
-PAUSE
