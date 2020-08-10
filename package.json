@@ -5,6 +5,9 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
-    "rlbot-test": "github:SuperVK/RLBotJS"
+    "rlbot-test": "../RLBotJS"
+  },
+  "scripts": {
+    "dev": "./rlbot/run.bat"
   }
 }

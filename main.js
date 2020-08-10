@@ -1,5 +1,6 @@
 const { BaseAgent, SimpleController, quickChats, Manager } = require('rlbot-test');
 const { GameState, BallState, CarState, Physics, Vector3 } = require('rlbot-test').GameStateUtil
+const fs = require('fs')
 
 class ATBA extends BaseAgent {
     constructor(name, team, index, fieldInfo) {
@@ -78,7 +79,7 @@ class ATBA extends BaseAgent {
         }
         let ball = new BallState(new Physics(null, null, new Vector3(null, null, gameTickPacket.ball.physics.velocity.z+(650/60)))) //assumes you are running 60fps
         this.setGameState(new GameState(ball, cars))
-
+        return controller;
 
 
         
@@ -86,5 +87,5 @@ class ATBA extends BaseAgent {
     }
 }
 
-const manager = new Manager(ATBA);
+const manager = new Manager(ATBA, Number(fs.readFileSync('./config/port.cfg').toString()));
 manager.start();
