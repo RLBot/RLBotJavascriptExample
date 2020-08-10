@@ -13,7 +13,7 @@ import {
     GameTickPacket,
     BallPrediction,
     Rotator
-} from 'rlbot-test';
+} from 'rlbotjs';
 
 class ATBA extends BaseAgent {
     constructor(name: string, team: number, index: number, fieldInfo: FieldInfo) {
