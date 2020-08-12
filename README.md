@@ -5,6 +5,10 @@ An example bot implemented in JavaScript
 
 If you are looking for the java example bot please go [here](https://github.com/RLBot/RLBotJavaExample)
 
+## Running guide
+
+Install node version 12 from https://nodejs.org/. Clone this repo and add it to RLBotGUI and run it (the cfg file is in config).
+
 ## Installation guide
 
 1. Clone this repo (or download the zip)
