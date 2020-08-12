@@ -7,24 +7,17 @@ If you are looking for the java example bot please go [here](https://github.com/
 
 ## Installation guide
 
-If you've installed a few other npm packages already, chances are doing `npm install SuperVK/RLBotJS` works.
-
-0. Make sure you have git installed (even if you are downloading the zip instead of cloning)
-
 1. Clone this repo (or download the zip)
 
-2. Open cmd/powershell in the example folder, and type `npm install`
+1. Install yarn if you haven't already (`npm install -g yarn`) **It doesn't work without yarn!**
 
-3. Then run `node .`
+1. Open cmd/powershell in the example folder, and type `yarn`
 
-4. Start RLBot with gui or via `RLBotJavascriptExample/rlbot/run.bat` 
+1. Type `yarn dev` to start the bot
 
+1. Load the bot (the /config/JSExample.cfg file) in the RLBotGUI and start a match
 
-### if `npm install` gives an error follow this guide:
+## READ IF YOU ARE PUBLISHING YOUR BOT
 
-1. Open a powershell window as Administrator
-
-2. Type `npm i -g windows-build-tools` and press enter (this may take a while)
-
-3. Try installing again from step 2
+Commit all the files in .yarn!
 

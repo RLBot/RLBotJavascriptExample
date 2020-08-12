@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "node ./.yarn/releases/yarn-berry.js node .",
-    "ts-watch": "tsc -w"
+    "ts-watch": "tsc -w",
+    "ts": "tsc"
   }
 }
