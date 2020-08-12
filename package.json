@@ -5,9 +5,11 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
-    "rlbotjs": "github:SuperVK/RLBotJS"
+    "rlbotjs": "^0.0.2",
+    "typescript": "^3.9.7"
   },
   "scripts": {
-    "dev": "./rlbot/run.bat"
+    "dev": "node ./.yarn/releases/yarn-berry.js node .",
+    "ts-watch": "tsc -w"
   }
 }
