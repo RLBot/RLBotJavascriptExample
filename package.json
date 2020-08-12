@@ -5,8 +5,7 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
-    "rlbotjs": "^0.0.2",
-    "typescript": "^3.9.7"
+    "rlbotjs": "^0.0.2"
   },
   "scripts": {
     "dev": "node ./.yarn/releases/yarn-berry.js node .",
