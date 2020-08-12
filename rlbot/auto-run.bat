@@ -1,4 +1,4 @@
 @cd /D "%~dp0"
 
 @cd ../
-@call node .
+@call node ./.yarn/releases/yarn-berry.js node .
