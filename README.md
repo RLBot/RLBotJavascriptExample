@@ -9,6 +9,8 @@ If you are looking for the java example bot please go [here](https://github.com/
 
 1. Clone this repo (or download the zip)
 
+1. Change the port in port.cfg
+
 1. Install yarn if you haven't already (`npm install -g yarn`) **It doesn't work without yarn!**
 
 1. Open cmd/powershell in the example folder, and type `yarn`
