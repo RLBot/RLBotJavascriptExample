@@ -23,7 +23,14 @@ Install node version 12 from https://nodejs.org/. Clone this repo and add it to 
 
 1. Load the bot (the /config/JSExample.cfg file) in the RLBotGUI and start a match
 
-## READ IF YOU ARE PUBLISHING YOUR BOT
+## Publishing your bot
 
 Commit all the files in .yarn!
 
+You can safely zip the all folders (except .git), and send them to the runner. Commiting to the rlbotpack isn't currently possible.
+
+## Typescript
+
+Run `yarn add typescript` and then follow this tutorial to fix the editor issue: https://yarnpkg.com/advanced/editor-sdks#vscode
+
+And use `yarn ts-watch` and `yarn ts` for watching and compiling respectively

@@ -5,10 +5,10 @@
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
-    "rlbotjs": "^0.0.2"
+    "rlbotjs": "^0.0.4"
   },
   "scripts": {
-    "dev": "node ./.yarn/releases/yarn-berry.js node .",
+    "dev": "node .",
     "ts-watch": "tsc -w",
     "ts": "tsc"
   }
